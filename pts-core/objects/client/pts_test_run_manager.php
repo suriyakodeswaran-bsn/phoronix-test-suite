@@ -304,7 +304,7 @@ class pts_test_run_manager
 		if(($env = pts_client::read_env('TEST_RESULTS_NAME')))
 		{
 			$save_name = $env;
-			//echo 'Saving Results To: ' . $proposed_name . PHP_EOL;
+			echo 'Saving Results To: ' . $save_name . PHP_EOL;
 		}
 
 		if(!$this->batch_mode || $this->batch_mode['PromptSaveName'])
