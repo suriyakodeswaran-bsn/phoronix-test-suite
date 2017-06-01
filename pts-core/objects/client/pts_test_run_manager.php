@@ -304,7 +304,7 @@ class pts_test_run_manager
 		if(($env = pts_client::read_env('TEST_RESULTS_NAME')))
 		{
 			$save_name = $env;
-			echo 'Saving Results To: ' . $save_name . PHP_EOL;
+			#echo 'Saving Results To: ' . $save_name . PHP_EOL;
 		}
 
 		if(!$this->batch_mode || $this->batch_mode['PromptSaveName'])
@@ -910,7 +910,7 @@ class pts_test_run_manager
 			pts_module_manager::module_process('__event_results_process', $this);
 			pts_client::save_test_result($this->get_file_name() . '/composite.xml', $this->result_file->get_xml(), true, $this->results_identifier);
 			pts_module_manager::module_process('__event_results_saved', $this);
-			//echo PHP_EOL . 'Results Saved To: ; . PTS_SAVE_RESULTS_PATH . $this->get_file_name() . ;/composite.xml' . PHP_EOL;
+			echo PHP_EOL . 'Results Saved To: ; . PTS_SAVE_RESULTS_PATH . $this->get_file_name() . ;/composite.xml' . PHP_EOL;
 
 			if(!$this->auto_mode)
 			{
