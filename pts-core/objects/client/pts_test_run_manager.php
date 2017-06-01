@@ -1269,7 +1269,6 @@ class pts_test_run_manager
 			if($save_results)
 			{
 				// Prompt Save File Name
-				echo "here";
 				$this->prompt_save_name();
 
 				// Prompt Identifier
