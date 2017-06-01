@@ -55,7 +55,7 @@ class batch_setup implements pts_option_interface
 		$batch_options['PhoronixTestSuite/Options/BatchMode/UploadResults'] = 'FALSE';
 		$batch_options['PhoronixTestSuite/Options/BatchMode/PromptForTestIdentifier'] = 'FALSE';
 		$batch_options['PhoronixTestSuite/Options/BatchMode/PromptForTestDescription'] = 'FALSE';
-		$batch_options['PhoronixTestSuite/Options/BatchMode/PromptSaveName'] = 'FALSE';
+		$batch_options['PhoronixTestSuite/Options/BatchMode/PromptSaveName'] = 'TRUE';
 		$batch_options['PhoronixTestSuite/Options/BatchMode/RunAllTestCombinations'] = 'FALSE';
 		$batch_options['PhoronixTestSuite/Options/BatchMode/Configured'] = 'TRUE';
 		
