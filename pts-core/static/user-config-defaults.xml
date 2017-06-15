@@ -34,7 +34,7 @@
 			<AutoSortRunQueue>TRUE</AutoSortRunQueue>
 		</Testing>
 		<TestResultValidation>
-			<DynamicRunCount>FALSE</DynamicRunCount>
+			<DynamicRunCount>TRUE</DynamicRunCount>
 			<LimitDynamicToTestLength>20</LimitDynamicToTestLength>
 			<StandardDeviationThreshold>7.50</StandardDeviationThreshold>
 			<ExportResultsTo></ExportResultsTo>
