@@ -109,7 +109,7 @@ function pts_define_directories()
 {
 	// User's home directory for storing results, module files, test installations, etc.
 	pts_define('PTS_CORE_PATH', PTS_PATH . 'pts-core/');
-	pts_define('PTS_IS_DAEMONIZED_SERVER_PROCESS', PTS_IS_CLIENT && is_dir('/var/lib/') && is_writable('/') ? true : false);
+	pts_define('PTS_IS_DAEMONIZED_SERVER_PROCESS', PTS_IS_CLIENT && is_writable('/var/lib/') && is_writable('/etc') ? true : false);
 
 	if(PTS_IS_DAEMONIZED_SERVER_PROCESS)
 	{
@@ -248,8 +248,8 @@ function pts_version_codenames()
 		);
 }
 
-pts_define('PTS_VERSION', '7.2.0m3');
-pts_define('PTS_CORE_VERSION', 7131);
+pts_define('PTS_VERSION', '7.2.1');
+pts_define('PTS_CORE_VERSION', 7210);
 pts_define('PTS_CODENAME', 'TRYSIL');
 pts_define('PTS_IS_CLIENT', (defined('PTS_MODE') && strstr(PTS_MODE, 'CLIENT') !== false));
 pts_define('PTS_IS_WEB_CLIENT', (defined('PTS_MODE') && PTS_MODE == 'WEB_CLIENT'));

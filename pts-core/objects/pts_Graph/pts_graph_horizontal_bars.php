@@ -146,7 +146,7 @@ class pts_graph_horizontal_bars extends pts_graph_core
 					}
 				}
 
-				$this->svg_dom->add_element('rect', array('x' => $this->i['left_start'], 'y' => $px_bound_top, 'height' => $bar_height, 'width' => $graph_size, 'fill' => (in_array($buffer_item->get_result_identifier(), $this->value_highlights) ? $this->darken_color($paint_color) : $paint_color), 'xlink:title' => $title_tooltip), $g_bars);
+				$this->svg_dom->add_element('rect', array('x' => $this->i['left_start'], 'y' => $px_bound_top, 'height' => $bar_height, 'width' => $graph_size, 'fill' => $this->adjust_color($buffer_item->get_result_identifier(), $paint_color), 'xlink:title' => $title_tooltip), $g_bars);
 
 				if($std_error != -1 && $std_error > 0 && $value != null)
 				{
@@ -202,7 +202,14 @@ class pts_graph_horizontal_bars extends pts_graph_core
 							{
 								$g_note = $this->svg_dom->make_g(array('font-size' => (self::$c['size']['key'] - 2), 'fill' => self::$c['color']['body_text'], 'text-anchor' => 'start', 'font-weight' => 'bold'));
 							}
-							$this->svg_dom->add_text_element($note, array('x' => ($this->i['left_start'] + 4), 'y' => ($px_bound_top + self::$c['size']['key'])), $g_note);
+							if(self::text_string_width($note, self::$c['size']['key']) > ($graph_size * 0.9))
+							{
+								// TODO decide if note should be relocated in front of bar or something?
+							}
+							else
+							{
+								$this->svg_dom->add_text_element($note, array('x' => ($this->i['left_start'] + 4), 'y' => $px_bound_top + self::$c['size']['key']), $g_note);
+							}
 						}
 					}
 

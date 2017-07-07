@@ -559,6 +559,7 @@ class pts_test_result_parser
 			$line_before_hint = isset($entry->LineBeforeHint) ? $entry->LineBeforeHint->__toString() : null;
 			$line_after_hint = isset($entry->LineAfterHint) ? $entry->LineAfterHint->__toString() : null;
 			$line_hint = isset($entry->LineHint) ? $entry->LineHint->__toString() : null;
+			$chars_to_space = isset($entry->TurnCharsToSpace) ? $entry->TurnCharsToSpace->__toString() : null;
 			$search_key = self::determine_search_key($output, $line_hint, $line_before_hint, $line_after_hint, $template_line, $template, $template_r, $key_for_result); // SEARCH KEY
 			pts_client::test_profile_debug_message('Search Key: ' . $search_key);
 			if($search_key != null || $line_before_hint != null || $line_after_hint != null || $template_r[0] == $key_for_result)
@@ -610,6 +611,10 @@ class pts_test_result_parser
 						pts_client::test_profile_debug_message('No Result Parsing Hint, Including Entire Result Output');
 						$line = trim($output);
 					}
+					if(!empty($chars_to_space))
+					{
+						$line = str_replace($chars_to_space, ' ', $line);
+					}
 					pts_client::test_profile_debug_message('Result Line: ' . $line);
 
 					// FALLBACK HELPERS FOR BELOW
@@ -625,11 +630,14 @@ class pts_test_result_parser
 						{
 							// Using ResultBeforeString tag
 							$before_this = array_search($before_string, $r);
-							$possible_res = $r[($before_this - 1)];
-							self::strip_result_cleaner($possible_res, $entry);
-							if($before_this !== false && (!$is_numeric_check || is_numeric($possible_res)))
+							if($before_this && isset($r[($before_this - 1)]))
 							{
-								$test_results[] = $possible_res;
+								$possible_res = $r[($before_this - 1)];
+								self::strip_result_cleaner($possible_res, $entry);
+								if($before_this !== false && (!$is_numeric_check || is_numeric($possible_res)))
+								{
+									$test_results[] = $possible_res;
+								}
 							}
 						}
 						else if(!empty($after_string))
