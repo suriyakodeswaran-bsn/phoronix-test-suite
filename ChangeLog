@@ -1,12 +1,31 @@
 PHORONIX TEST SUITE CHANGE-LOG
 
-Phoronix Test Suite (Git)
+Phoronix Test Suite 7.2.1-Trysil
+30 June 2017
+
+pts-core: Don't pass arguments in quotes to pre/interim/post test scripts
+pts-core: Minor optimization to is_test_profile() and more easily allow explicit paths to be used, overriding what's in OB cache
+pts-core: Minor optimization to is_suite() and more easily allow explicit paths to be used, overriding what's in OB cache
+pts-core: Fix warning in pts_test_result_parser
+phodevi: AVX-512 reporting
+
+Phoronix Test Suite 7.2.0-Trysil
+8 June 2017
+
+pts-core: Add TurnCharsToSpace support to result parser
+pts_Graph: Fix multi-way comparison detection
+
+Phoronix Test Suite 7.2.0 Milestone 4
+3 June 2017
 
 pts-core: If a OB upload fails with system logs, try again without system logs
 pts-core: Add basic dump-tests-to-git sub-command
+pts-core: Add basic dump-suites-to-git sub-command
 pts-core: Result parser fixes/improvements
 pts-core: Additional safety checks around loading test result arguments from a result file
 pts-core: Add "vulkan-development" external dependency
+pts_Graph: Few tweaks/clean-ups
+pts_Graph: Allow optionally specifying custom colors via the GRAPH_HIGHLIGHT environment variable
 phoromatic: Introduce support for setting a run-priority on test schedules
 
 Phoronix Test Suite 7.2.0 Milestone 3
